@@ -10,7 +10,7 @@ const Experience = () => {
     to: "",
   });
 
-  // Fetch experiences from backend
+  
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
@@ -27,12 +27,12 @@ const Experience = () => {
     fetchExperiences();
   }, []);
 
-  // Handle form input changes
+ 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -41,10 +41,10 @@ const Experience = () => {
         headers: { Authorization: `${token}` }
       });
 
-      // Add new experience to state
+     
       setExperiences([...experiences, response.data]);
 
-      // Reset form
+     
       setFormData({
         organization: "",
         designation: "",
@@ -66,7 +66,7 @@ const Experience = () => {
           </p>
         </div>
 
-        {/* Experience Form */}
+     
         <div className="mb-12">
           <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Experience</h2>
