@@ -11,7 +11,7 @@ exports.addPublication = async (req, res) => {
 
 exports.getPublications = async (req, res) => {
     try {
-        const publications = await Publication.find({ user: req.user.id });
+        const publications = await Publication.find({});
         res.json(publications);
     } catch (error) {
         res.status(500).json({ error: error.message });

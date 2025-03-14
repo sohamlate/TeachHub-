@@ -5,6 +5,6 @@ const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
 router.post('/', authMiddleware, addEducation);
-router.get('/', authMiddleware, getEducation);
+router.get('/', getEducation);
 
 module.exports = router;

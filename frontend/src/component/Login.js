@@ -31,7 +31,7 @@ const navigate = useNavigate();
       
       setMessage("Login successful! Token stored.");
 
-      navigate('/publication')
+      navigate('/')
       
       // Reset form
       setFormData({

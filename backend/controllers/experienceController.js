@@ -11,7 +11,7 @@ exports.addExperience = async (req, res) => {
 
 exports.getExperience = async (req, res) => {
     try {
-        const experiences = await Experience.find({ user: req.user.id });
+        const experiences = await Experience.find({});
         res.json(experiences);
     } catch (error) {
         res.status(500).json({ error: error.message });
