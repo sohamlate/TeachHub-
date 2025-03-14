@@ -10,6 +10,8 @@ const Experience = () => {
     to: "",
   });
 
+  const token = localStorage.getItem("token");
+
   
   useEffect(() => {
     const fetchExperiences = async () => {
@@ -68,9 +70,9 @@ const Experience = () => {
 
      
         <div className="mb-12">
-          <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Experience</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        { token && <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Experience</h2>
+             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
                 type="text"
                 name="organization"
@@ -111,7 +113,9 @@ const Experience = () => {
                 Add Experience
               </button>
             </form>
+        
           </div>
+          }
         </div>
 
         {/* Experience List */}

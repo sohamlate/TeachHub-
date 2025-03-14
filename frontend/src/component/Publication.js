@@ -62,7 +62,10 @@ const Publications = () => {
     }
   };
 
+  const token = localStorage.getItem("token");
   return (
+
+
     <div className="w-full min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto pt-8 px-4">
         <div className="mb-12 text-center">
@@ -76,7 +79,7 @@ const Publications = () => {
 
         {/* Publication Form */}
         <div className="mb-12">
-          <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+        { token && <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Add New Publication</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
@@ -114,6 +117,7 @@ const Publications = () => {
               </button>
             </form>
           </div>
+            }
         </div>
 
         {/* Publications List */}

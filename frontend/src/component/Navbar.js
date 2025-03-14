@@ -6,13 +6,15 @@ import { chosenTheme } from "../theme";
 
 
 const Header = () => {
+  const token = localStorage.getItem("token");
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-    
+   
       <div className="w-full px-4 py-5 mx-auto flex items-center justify-between max-w-5xl">
         <NavLink to={settings.isSplash ? "/splash" : "/home"} className="text-2xl font-bold flex items-center">
           <span style={{ color: chosenTheme.text }}> &lt;</span>
@@ -25,7 +27,8 @@ const Header = () => {
           <span className="block w-6 h-0.5 bg-gray-800 mb-1"></span>
           <span className="block w-6 h-0.5 bg-gray-800"></span>
         </label>
-        <ul className="hidden md:flex space-x-6 text-lg" style={{ backgroundColor: chosenTheme.body }}>
+        <ul className="hidden md:flex items-center space-x-6 text-lg" style={{ backgroundColor: chosenTheme.body }}>
+
           {[
             { path: "/", name: "Home" },
             { path: "/education", name: "Education" },
@@ -44,6 +47,19 @@ const Header = () => {
               </NavLink>
             </li>
           ))}
+          {token && (
+            <li>
+              <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.reload();
+                }}
+                className="px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-600 transition"
+              >
+                Logout
+              </button>
+            </li>
+          )}
         </ul>
       </div>
     </motion.div>
