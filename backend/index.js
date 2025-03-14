@@ -22,7 +22,7 @@ mongoose.connect(db)
     process.exit(1);
 });    
 
-app.use('/api/contact', contactRoute);
+app.use('/api/contact', contactRoute);  
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/experience', require('./routes/experienceRoutes'));
 app.use('/api/education', require('./routes/educationRoutes'));

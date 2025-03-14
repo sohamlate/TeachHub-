@@ -6,6 +6,7 @@ import Experience from "./component/Experience";
 import { Route, Routes } from "react-router-dom";
 import Home from "../src/component/Home";
 import Header from "../src/component/Navbar"
+import Education from "../src/component/Education";
 
 const App = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);  // Track login state
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/experience" element={<Experience />} />
+        <Route path="/education" element={<Education />} />
       </Routes>
     </div>
   );
