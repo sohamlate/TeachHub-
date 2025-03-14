@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../src/component/Home";
 import Header from "../src/component/Navbar"
 import Education from "../src/component/Education";
+import Contact from "../src/component/Contact";
 
 const App = () => {
   
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/education" element={<Education />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );

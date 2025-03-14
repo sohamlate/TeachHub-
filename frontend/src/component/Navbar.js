@@ -34,7 +34,7 @@ const Header = () => {
             { path: "/education", name: "Education" },
             { path: "/experience", name: "Experience" },
             { path: "/publication", name: "Publication" },
-            { path: "/opensource", name: "Open Source" },
+            // { path: "/opensource", name: "Open Source" },
             { path: "/contact", name: "Contact Me" },
           ].map((item) => (
             <li key={item.path}>

@@ -11,7 +11,7 @@ exports.addEducation = async (req, res) => {
 
 exports.getEducation = async (req, res) => {
     try {
-        const education = await Education.find({ user: req.user.id });
+        const education = await Education.find({ });
         res.json(education);
     } catch (error) {
         res.status(500).json({ error: error.message });

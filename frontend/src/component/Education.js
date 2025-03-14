@@ -4,9 +4,9 @@ import axios from "axios";
 const Education = () => {
   const [education, setEducation] = useState([]);
   const [formData, setFormData] = useState({
-    collegename: "",
-    coursename: "",
-    percent: "",
+    university: "",
+    course: "",
+    grade: "",
     certificate: "",
   });
 
@@ -14,9 +14,10 @@ const Education = () => {
     const fetchEducation = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/education", {
+        const response = await axios.get("http://localhost:5000/api/education",  {
           headers: { Authorization: `${token}` },
         });
+
         setEducation(response.data); // Fixed this line
       } catch (error) {
         console.error("Error fetching education:", error);
@@ -45,9 +46,9 @@ const Education = () => {
       setEducation([...education, response.data]);
 
       setFormData({
-        collegename: "",
-        coursename: "",
-        percent: "", // Fixed spelling issue
+        university: "",
+        course: "",
+        grade: "", // Fixed spelling issue
         certificate: "",
       });
     } catch (error) {
@@ -55,8 +56,10 @@ const Education = () => {
     }
   };
 
+  const token = localStorage.getItem("token");
+
   return (
-    <div className="w-full min-h-screen bg-gray-50">
+    <div className="w-full min-h-screen ">
       <div className="max-w-6xl mx-auto pt-8 px-4">
         <div className="mb-12 text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">Education</h1>
@@ -66,33 +69,33 @@ const Education = () => {
         </div>
 
         {/* Add Education Form */}
-        <div className="mb-12">
+       { token &&  <div className="mb-12">
           <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Education</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
                 type="text"
-                name="collegename"
+                name="university"
                 placeholder="College Name"
-                value={formData.collegename}
+                value={formData.university}
                 onChange={handleChange}
                 required
                 className="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
-                name="coursename"
+                name="course"
                 placeholder="Course Name"
-                value={formData.coursename}
+                value={formData.course}
                 onChange={handleChange}
                 required
                 className="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
-                type="number"
-                name="percent"
+                type="text"
+                name="grade"
                 placeholder="Percentage"
-                value={formData.percent}
+                value={formData.grade}
                 onChange={handleChange}
                 required
                 className="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -115,14 +118,16 @@ const Education = () => {
           </div>
         </div>
 
+       }
+
         {/* Education List */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {education.length > 0 ? (
             education.map((edu) => (
               <div key={edu._id} className="p-6 bg-white shadow-lg rounded-lg">
-                <h3 className="text-xl font-bold">{edu.collegename}</h3>
-                <p className="text-gray-600">{edu.coursename}</p>
-                <p className="text-gray-500">Percentage: {edu.percent}%</p>
+                <h3 className="text-xl font-bold">{edu.university}</h3>
+                <p className="text-gray-600">{edu.course}</p>
+                <p className="text-gray-500">Percentage: {edu.grade}%</p>
                 {edu.certificate && (
                   <a
                     href={edu.certificate}

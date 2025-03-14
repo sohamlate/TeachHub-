@@ -6,7 +6,7 @@ import { greeting } from "../portfolio";
 // import FeelingProud from "./FeelingProud";
 import { chosenTheme } from "../theme";
 
-export default function Greeting({ theme }) {
+export default function Greeting() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
