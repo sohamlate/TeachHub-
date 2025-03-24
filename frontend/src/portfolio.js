@@ -3,7 +3,7 @@ const greeting = {
     logo_name: "",
     nickname: "",
     subTitle:
-      "A passionate educator and researcher in Machine Learning, dedicated to empowering students with AI-driven knowledge and innovative problem-solving skills.",
+      " Around 7 years of experience in different fields like Teaching, Machine Learning Research, HR Management, Software Development & Student Counseling. Master's & Bachelor's degree in Computer Engineering with Distinction grade from SPPU.  ",
     resumeLink:
       "",
     portfolio_repository: "https://priyanka333.github.io/Profile/",
