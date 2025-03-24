@@ -17,7 +17,7 @@ const Experience = () => {
     const fetchExperiences = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/experience", {
+        const response = await axios.get("https://teach-hub-eight.vercel.app/api/experience", {
           headers: { Authorization: `${token}` }
         });
         setExperiences(response.data);
@@ -37,7 +37,7 @@ const Experience = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post("http://localhost:5000/api/experience", formData, {
+      const response = await axios.post("https://teach-hub-eight.vercel.app/api/experience", formData, {
         headers: { Authorization: `${token}` }
       });
       setExperiences([...experiences, response.data]);
