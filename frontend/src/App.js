@@ -8,11 +8,20 @@ import Home from "../src/component/Home";
 import Header from "../src/component/Navbar"
 import Education from "../src/component/Education";
 import Contact from "../src/component/Contact";
+import EditProfile from "./component/editProfile";
 
 const App = () => {
   
+  const token = localStorage.getItem("token");
+  
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user<"fdsf");
+
 
   return( 
+
+
     <div className="bg-[#eff6ff]">
         <Header></Header>
       <Routes>
@@ -23,6 +32,7 @@ const App = () => {
         <Route path="/experience" element={<Experience />} />
         <Route path="/education" element={<Education />} />
         <Route path="/contact" element={<Contact />} />
+         <Route path="/editprofile" element={<EditProfile user={user} />} />
       </Routes>
     </div>
   );

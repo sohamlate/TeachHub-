@@ -24,16 +24,16 @@ const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://teach-hub-eight.vercel.app/api/auth/login", formData);
+      const response = await axios.post("http://localhost:5000/api/auth/login", formData);
       
-      // Store token in localStorage
+     
       localStorage.setItem("token", response.data.token);
-      
+      localStorage.setItem("user", JSON.stringify(response.data.user));
       setMessage("Login successful! Token stored.");
-
-      navigate('/')
+      navigate("/"); 
+      window.location.reload(); 
       
-      // Reset form
+
       setFormData({
         email: "",
         password: ""

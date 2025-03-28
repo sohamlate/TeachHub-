@@ -17,7 +17,7 @@ const Publications = () => {
     const fetchPublications = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("https://teach-hub-eight.vercel.app/api/publication", {
+        const response = await axios.get("http://localhost:5000/api/publication", {
           headers: {
             Authorization: `${token}`
           }
@@ -42,7 +42,7 @@ const Publications = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post("https://teach-hub-eight.vercel.app/api/publication", formData, {
+      const response = await axios.post("http://localhost:5000/api/publication", formData, {
         headers: {
           Authorization: `${token}`
         }

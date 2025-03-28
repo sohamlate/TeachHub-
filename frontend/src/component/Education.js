@@ -17,7 +17,7 @@ const Education = () => {
     const fetchEducation = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("https://teach-hub-eight.vercel.app/api/education", {
+        const response = await axios.get("http://localhost:5000/api/education", {
           headers: { Authorization: `${token}` },
         });
         setEducation(response.data);
@@ -38,7 +38,7 @@ const Education = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://teach-hub-eight.vercel.app/api/education",
+        "http://localhost:5000/api/education",
         formData,
         {
           headers: { Authorization: `${token}` },

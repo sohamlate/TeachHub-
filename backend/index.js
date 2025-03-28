@@ -27,6 +27,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/experience', require('./routes/experienceRoutes'));
 app.use('/api/education', require('./routes/educationRoutes'));
 app.use('/api/publication', require('./routes/publicationRoutes'));
+app.use('/api/profiles', require('./routes/profileRoutes'));
 
 
 
