@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Quiz = require('../models/Quiz');
 
 exports.register = async (req, res) => {
     try {
@@ -29,6 +30,7 @@ exports.login = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
 
 
 

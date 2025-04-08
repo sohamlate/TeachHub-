@@ -7,8 +7,15 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../src/component/Home";
 import Header from "../src/component/Navbar"
 import Education from "../src/component/Education";
+import Award from "../src/component/Awards";
 import Contact from "../src/component/Contact";
 import EditProfile from "./component/editProfile";
+import StudyMaterials from "./component/StudyMaterial";
+import DeliveredSessions from "./component/DeliveredSessions";
+import AdminQuiz from "./component/AdminQuiz";
+import AttemptQuiz from "./component/AttemptQuiz";
+import QuizDetail from "./component/QuizDetail";
+import QuizList from "./component/QuizList";
 
 const App = () => {
   
@@ -31,8 +38,15 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/education" element={<Education />} />
+        <Route path="/award" element={<Award />} />
+        <Route path="/study-material" element={<StudyMaterials />} />
+        <Route path="/expert" element={<DeliveredSessions />} />
         <Route path="/contact" element={<Contact />} />
-         <Route path="/editprofile" element={<EditProfile user={user} />} />
+         {/* <Route path="/editprofile" element={<EditProfile user={user} />} /> */}
+        <Route path="/quiz" element={<AttemptQuiz />} />
+        <Route path="/quiz-user/:quizId" element={<QuizList />} />
+        <Route path="/admin-quiz" element={<AdminQuiz />} />
+        <Route path="/quiz/:quizId" element={<QuizDetail />} />
       </Routes>
     </div>
   );
