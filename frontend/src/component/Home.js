@@ -26,9 +26,9 @@ function Home() {
               <h2 className="text-4xl font-extrabold text-blue-700">
                 {profileData.name || "Dr. Jane Doe"}
               </h2>
-              <p className="text-lg mt-2 text-blue-600">
+              {/* <p className="text-lg mt-2 text-blue-600">
                 AI Researcher | Educator | Speaker
-              </p>
+              </p> */}
             </div>
           </div>
 
