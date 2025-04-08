@@ -18,13 +18,19 @@ const SubjectTaught = () => {
   const underGraduateData = [
     [1, "Machine Learning", "Theory & Practical", "Computer Engineering", "BE", "2020-21, 2022-23"],
     [2, "Soft Computing & Optimization Algorithms", "Theory & Practical", "Computer Engineering", "BE", "2020-21"],
-    [3, "Artificial Intelligence", "Theory & Practical", "Computer Engineering", "BE", "2019-20"],
-    [4, "Design and Analysis of Algorithms", "Theory", "Computer Engineering", "TE", "2021-22"],
-    [5, "Data Structures and Algorithms", "Theory & Practical", "Computer Engineering", "SE", "2016-17"],
-    [6, "Data Structures", "Theory & Practical", "Computer Engineering", "SE", "2015-16"],
-    [7, "Computer Graphics", "Theory & Practical", "Computer Engineering", "SE", "2016-17"],
-    [8, "Microprocessor", "Theory & Practical", "Computer Engineering", "TE", "2014-15"],
-    [9, "Digital Electronics & Logic Design", "Theory & Practical", "Computer Engineering", "SE", "2013-14"],
+    [3, "Data Mining & Data Warehousing", "Theory & Practical", "Computer Engineering", "TE", "2020-21"],
+    [4, "Machine Learning & Applications", "Theory & Practical", "Information Technology", "BE", "2020-21"],
+    [5, "Fundamentals of Data Analytics (Autonomous - GHRIET)", "Theory & Practical", "All", "FE", "2020-21"],
+    [6, "Computer Graphics", "Theory", "AI & DS", "SE", "2021-22"],
+    [7, "Data Structures & Algorithms", "Practical", "AI & DS", "SE", "2021-22"],
+    [8, "Operating System", "Theory & Practical", "AI & DS", "SE", "2021-22"],
+    [9, "Business Communication Skills", "Practical", "Computer Engineering, AI & DS", "SE", "2022-23, 2021-22"],
+    [10, "Project Based Learning", "Practical", "AI & DS", "SE", "2021-22"],
+    [11, "Machine Learning (Honors)", "Theory & Practical", "Computer Engineering", "BE", "2022-23"],
+    [12, "Humanity & Social Science", "Tutorial", "Computer Engineering", "SE", "2022-23"],
+    [13, "Artificial Intelligence (Honors)", "Theory", "Computer Engineering", "TE", "2022-23"],
+    [14, "LP II", "Practical", "Computer Engineering", "TE", "2022-23"],
+    [15, "Programming & Problem Solving (Sem 1 & Sem 2)", "Theory & Practical", "Engineering Sciences", "FE", "2023-24 (Sem 1 & Sem 2)"],
   ];
 
   const renderTable = (data) => (
