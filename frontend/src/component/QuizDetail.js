@@ -21,7 +21,7 @@ const QuizDetail = () => {
   const fetchQuizDetails = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5000/api/quiz/${quizId}`);
+      const response = await axios.get(`https://teach-hub-eight.vercel.app/api/quiz/${quizId}`);
       setQuiz(response.data);
     } catch (error) {
       console.error('Error fetching quiz:', error);
@@ -34,7 +34,7 @@ const QuizDetail = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/quiz/${quizId}/attempts`,
+        `https://teach-hub-eight.vercel.app/api/quiz/${quizId}/attempts`,
         { headers: { Authorization: `${token}` } }
       );
       setAttempts(response.data);
@@ -53,7 +53,7 @@ const QuizDetail = () => {
     }
 
     try {
-      await axios.post(`http://localhost:5000/api/quiz/${quizId}/questions`, 
+      await axios.post(`https://teach-hub-eight.vercel.app/api/quiz/${quizId}/questions`, 
         { questionText, options, correctAnswer }, 
         { headers: { Authorization: `${token}` } }
       );
@@ -68,7 +68,7 @@ const QuizDetail = () => {
 
   const handleDeleteQuestion = async (questionId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/quiz/${quizId}/questions`, 
+      await axios.delete(`https://teach-hub-eight.vercel.app/api/quiz/${quizId}/questions`, 
         { data: { questionId }, headers: { Authorization: `${token}` } }
       );
       fetchQuizDetails(); 

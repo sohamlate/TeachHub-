@@ -10,12 +10,12 @@ const StudyMaterials = () => {
     videoUrl: "",
   });
 
-  const API_URL = "http://localhost:5000/api/study-materials";
+  const API_URL = "https://teach-hub-eight.vercel.app/api/study-materials";
 
-  // Fetch all study materials
+  
   const fetchMaterials = async () => {
     try {
-      const token = localStorage.getItem("token"); // Optional
+      const token = localStorage.getItem("token");
       const response = await axios.get(API_URL, {
         headers: {
           Authorization: token,
@@ -40,7 +40,7 @@ const StudyMaterials = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem("token"); // Optional
+      const token = localStorage.getItem("token");
       await axios.post(API_URL, formData, {
         headers: {
           Authorization: token,
@@ -55,9 +55,15 @@ const StudyMaterials = () => {
 
   return (
     <div className="min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold text-center text-indigo-600 mb-6">
-        Study Materials
-      </h1>
+      {/* Section Title */}
+      <div className="text-center mb-10">
+        <h1 className="text-3xl md:text-4xl font-bold text-indigo-700">
+          Study Material, E-Content & Blogs
+        </h1>
+        <p className="mt-2 text-gray-700 text-base md:text-lg max-w-2xl mx-auto">
+           Access curated study materials and e-content, and read insightful blogs that support effective learning and academic growth.
+        </p>
+      </div>
 
       {/* Upload Form */}
       <form

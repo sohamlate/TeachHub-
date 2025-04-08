@@ -13,7 +13,7 @@ const ContactMe = () => {
     e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/api/contact', formData);
+            const response = await axios.post('https://teach-hub-eight.vercel.app/api/contact', formData);
             console.log(response);
         } catch (error) {
             console.error("There was an error submitting the form!", error);

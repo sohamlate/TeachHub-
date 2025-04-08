@@ -18,7 +18,7 @@ const QuizList = () => {
   useEffect(() => {
     if (quizId) {
       console.log(`Fetching quiz data for Quiz ID: ${quizId}`);
-      axios.get(`http://localhost:5000/api/quiz/${quizId}`)
+      axios.get(`https://teach-hub-eight.vercel.app/api/quiz/${quizId}`)
         .then((response) => {
           console.log("API Response:", response.data);
           setQuizData(response.data);
@@ -62,7 +62,7 @@ const QuizList = () => {
     const score = correctAnswers ;
 
     try {
-      const response = await axios.post(`http://localhost:5000/api/quiz/attempt/${quizId}`, {
+      const response = await axios.post(`https://teach-hub-eight.vercel.app/api/quiz/attempt/${quizId}`, {
         userName,
         userEmail,
         responses: userAnswers,

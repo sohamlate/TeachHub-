@@ -17,7 +17,7 @@ function EditProfile({ user }) {
 
   useEffect(() => {
     if (user) {
-      axios.get(`http://localhost:5000/api/profile/${user.id}`)
+      axios.get(`https://teach-hub-eight.vercel.app/api/profile/${user.id}`)
         .then(response => {
           if (response.data.profile) {
             setFormData(response.data.profile);
@@ -34,7 +34,7 @@ function EditProfile({ user }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/profile", formData, {
+      await axios.post("https://teach-hub-eight.vercel.app/api/profile", formData, {
         headers: { Authorization: localStorage.getItem("token") },
       });
       navigate(`/profile/${user.id}`);

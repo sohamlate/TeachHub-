@@ -14,7 +14,7 @@ const Awards = () => {
   useEffect(() => {
     const fetchAwards = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/awards", {
+        const response = await axios.get("https://teach-hub-eight.vercel.app/api/awards", {
           headers: {
             Authorization: `${token}`,
           },
@@ -39,7 +39,7 @@ const Awards = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/awards/add",
+        "https://teach-hub-eight.vercel.app/api/awards/add",
         formData,
         {
           headers: {

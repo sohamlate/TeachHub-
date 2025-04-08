@@ -16,6 +16,10 @@ import AdminQuiz from "./component/AdminQuiz";
 import AttemptQuiz from "./component/AttemptQuiz";
 import QuizDetail from "./component/QuizDetail";
 import QuizList from "./component/QuizList";
+import CV from "./component/CV"; 
+import StudentDashboard from './component/StudentDashboard'
+import SubjectTaught from './component/SubjectTaught'
+
 
 const App = () => {
   
@@ -47,6 +51,10 @@ const App = () => {
         <Route path="/quiz-user/:quizId" element={<QuizList />} />
         <Route path="/admin-quiz" element={<AdminQuiz />} />
         <Route path="/quiz/:quizId" element={<QuizDetail />} />
+        <Route path="/cv" element={<CV />} />
+        <Route path="/student-dashboard" element={<StudentDashboard />} />
+        <Route path="/subject" element={<SubjectTaught />} />
+
       </Routes>
     </div>
   );

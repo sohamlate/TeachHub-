@@ -17,7 +17,7 @@ const AdminQuiz = () => {
   const fetchQuizzes = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/api/quiz');
+      const response = await axios.get('https://teach-hub-eight.vercel.app/api/quiz');
       setQuizzes(response.data);
     } catch (error) {
       console.error('Error fetching quizzes:', error);
@@ -33,7 +33,7 @@ const AdminQuiz = () => {
     }
     
     try {
-      await axios.post('http://localhost:5000/api/quiz/create-quiz', 
+      await axios.post('https://teach-hub-eight.vercel.app/api/quiz/create-quiz', 
         { title, description }, 
         { headers: { Authorization: `${token}` } }
       );
@@ -47,7 +47,7 @@ const AdminQuiz = () => {
 
   const handleDeleteQuiz = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/quiz/${id}`, 
+      await axios.delete(`https://teach-hub-eight.vercel.app/api/quiz/${id}`, 
         { headers: { Authorization: `${token}` } }
       );
       fetchQuizzes();

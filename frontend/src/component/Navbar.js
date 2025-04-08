@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLink, useNavigate } from "react-router-dom";
 import { greeting, settings } from "../portfolio.js";
-import { chosenTheme } from "../theme";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +12,7 @@ const Header = () => {
   useEffect(() => {
     if (token) {
       try {
-        setIsAdmin(true); // Set isAdmin to true if token is present
+        setIsAdmin(true);
       } catch (error) {
         console.error("Token decoding failed", error);
       }
@@ -27,27 +26,23 @@ const Header = () => {
 
   const handleQuizRedirect = () => {
     if (isAdmin) {
-      navigate("/admin-quiz"); // Redirect to admin quiz if isAdmin is true
+      navigate("/admin-quiz");
     } else {
-      navigate("/quiz"); // Otherwise, redirect to normal quiz
+      navigate("/quiz");
     }
   };
 
   const navItems = [
     { path: "/", name: "Home" },
-    { path: "/experience", name: "Experience" },
-    { path: "/education", name: "Education" },
-    { path: "/publication", name: "Publication" },
+    { path: "/cv", name: "CV" },
     { path: "/award", name: "Awards" },
-    { path: "/study-material", name: "Subject Taught" },
+    { path: "/study-material", name: "Resources" },
     { path: "/expert", name: "Invited as Expert" },
+    { path: "/subject", name: "Subjects Taught" },   
+    { path: "/student-dashboard", name: "Student Dashboard" },
     { path: "/contact", name: "Contact Me" },
-    { 
-      name: "Quiz", 
-      onClick: handleQuizRedirect, // Handle quiz redirection
-      isQuiz: true
-    },
   ];
+  
 
   const menuVariants = {
     closed: {
@@ -82,13 +77,10 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo or Brand (Optional - Add your logo/brand) */}
+          {/* Logo */}
           <div className="flex items-center">
-            <span
-              className="text-xl font-bold"
-              style={{ color: chosenTheme.text }}
-            >
-              {greeting.title}
+            <span className="text-xl font-bold text-blue-700">
+              Study Portal
             </span>
           </div>
 
@@ -96,7 +88,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-blue-600 hover:text-blue-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               aria-expanded={menuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -137,27 +129,17 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-4">
             {navItems.map((item) => (
-              item.isQuiz ? (
-                <button
-                  key={item.name}
-                  onClick={item.onClick} // Handle quiz redirection
-                  className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 transition"
-                >
-                  {item.name}
-                </button>
-              ) : (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 transition"
-                  style={({ isActive }) => ({
-                    color: isActive ? chosenTheme.text : chosenTheme.text + "80",
-                    fontWeight: isActive ? "bold" : "normal",
-                  })}
-                >
-                  {item.name}
-                </NavLink>
-              )
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={({ isActive }) =>
+                  `px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 transition ${
+                    isActive ? "text-blue-700 font-bold" : "text-blue-600"
+                  }`
+                }
+              >
+                {item.name}
+              </NavLink>
             ))}
             {token && (
               <button
@@ -187,29 +169,20 @@ const Header = () => {
                     variants={menuItemVariants}
                     transition={{ delay: index * 0.1 }}
                   >
-                    {item.isQuiz ? (
-                      <button
-                        onClick={item.onClick} // Handle quiz redirection
-                        className="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 transition"
-                      >
-                        {item.name}
-                      </button>
-                    ) : (
-                      <NavLink
-                        to={item.path}
-                        className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 transition"
-                        style={({ isActive }) => ({
-                          color: isActive ? chosenTheme.text : chosenTheme.text + "80",
-                          fontWeight: isActive ? "bold" : "normal",
-                        })}
-                        onClick={() => {
-                          setMenuOpen(false);
-                          if (item.onClick) item.onClick(); // Handle onClick for quiz redirection
-                        }}
-                      >
-                        {item.name}
-                      </NavLink>
-                    )}
+                    <NavLink
+                      to={item.path}
+                      className={({ isActive }) =>
+                        `block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 transition ${
+                          isActive ? "text-blue-700 font-bold" : "text-blue-600"
+                        }`
+                      }
+                      onClick={() => {
+                        setMenuOpen(false);
+                        if (item.onClick) item.onClick();
+                      }}
+                    >
+                      {item.name}
+                    </NavLink>
                   </motion.div>
                 ))}
                 {token && (

@@ -17,7 +17,7 @@ const Experience = () => {
     const fetchExperiences = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/experience", {
+        const response = await axios.get("https://teach-hub-eight.vercel.app/api/experience", {
           headers: { Authorization: `${token}` }
         });
         setExperiences(response.data);
@@ -37,7 +37,7 @@ const Experience = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post("http://localhost:5000/api/experience", formData, {
+      const response = await axios.post("https://teach-hub-eight.vercel.app/api/experience", formData, {
         headers: { Authorization: `${token}` }
       });
       setExperiences([...experiences, response.data]);
@@ -61,7 +61,7 @@ const Experience = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 mb-4">
+          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-blue-700 mb-4">
             Professional Experience
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -133,7 +133,7 @@ const Experience = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
+                  className="w-full py-3 px-4 bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
                 >
                   Add Experience
                 </button>
