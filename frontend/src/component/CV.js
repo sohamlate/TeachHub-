@@ -8,6 +8,7 @@ const CV = () => {
     { name: "Experience", path: "/experience" },
     { name: "Education", path: "/education" },
     { name: "Publication", path: "/publication" },
+    {  name: "Awards",path: "/award" },
   ];
 
   return (
