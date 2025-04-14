@@ -8,6 +8,7 @@ const contactRoute = require('./routes/contactRoutes');
 const awardRoutes = require('./routes/awardRoutes');
 const quizRoutes = require('./routes/quizRoutes');
 const deliveredSessionRoutes = require("./routes/deliveredSessions");
+const subjectRoutes = require("./routes/subjectRoutes");
 
 
 dotenv.config();
@@ -37,6 +38,7 @@ app.use('/api/awards', awardRoutes);
 app.use('/api/study-materials', studyMaterialRoutes);
 app.use("/api/sessions", deliveredSessionRoutes);
 app.use('/api/quiz', quizRoutes);
+app.use("/api/subjects", subjectRoutes);
 
 
 // Routes

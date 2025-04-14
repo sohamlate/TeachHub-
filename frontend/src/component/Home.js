@@ -22,8 +22,8 @@ function Home() {
               className="w-40 h-44 rounded-xl border-4  shadow-md"
               alt={profileData.name}
             />
-            <div className="text-center sm:text-left">
-              <h2 className="text-4xl font-extrabold text-blue-700">
+            <div className="text-center lg:pl-6 lg:ml-16 sm:mt-16 sm:text-left">
+              <h2 className="text-5xl font-extrabold text-blue-700">
                 {profileData.name || "Dr. Jane Doe"}
               </h2>
               {/* <p className="text-lg mt-2 text-blue-600">
