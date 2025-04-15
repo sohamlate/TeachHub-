@@ -14,6 +14,8 @@ const SubjectTaught = () => {
     level: 'Under Graduate',
   });
 
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
@@ -36,14 +38,20 @@ const SubjectTaught = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const maxSrNo = Math.max(...subjects.map((subject) => subject.srNo), 0);
+    const subjectsInSameLevel = subjects.filter(subject => subject.level === newSubject.level);
 
+    const maxSrNoInLevel = Math.max(...subjectsInSameLevel.map(subject => subject.srNo), 0);
+    
     const subjectWithSrNo = {
       ...newSubject,
-      srNo: maxSrNo + 1, 
+      srNo: maxSrNoInLevel + 1,
     };
     try {
-      const response = await axios.post('https://teach-hub-eight.vercel.app/api/subjects', subjectWithSrNo);
+      const response = await axios.post('https://teach-hub-eight.vercel.app/api/subjects', subjectWithSrNo, {
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
       setSubjects([...subjects, response.data]);
       setNewSubject({
         srNo: '',
@@ -98,97 +106,99 @@ const SubjectTaught = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="text-5xl font-bold text-center text-blue-700 mb-8">Subjects Taught</h1>
 
-        <motion.div
-          className="bg-white p-6 rounded-lg shadow-lg mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-2xl font-semibold text-blue-700 mb-4">Add New Subject</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="mb-4">
-                <label className="block text-gray-700">Subject Name</label>
-                <input
-                  type="text"
-                  name="subjectName"
-                  value={newSubject.subjectName}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+        {token && (
+          <motion.div
+            className="bg-white p-6 rounded-lg shadow-lg mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-2xl font-semibold text-blue-700 mb-4">Add New Subject</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="mb-4">
+                  <label className="block text-gray-700">Subject Name</label>
+                  <input
+                    type="text"
+                    name="subjectName"
+                    value={newSubject.subjectName}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label className="block text-gray-700">Type</label>
-                <input
-                  type="text"
-                  name="type"
-                  value={newSubject.type}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700">Type</label>
+                  <input
+                    type="text"
+                    name="type"
+                    value={newSubject.type}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label className="block text-gray-700">Branch</label>
-                <input
-                  type="text"
-                  name="branch"
-                  value={newSubject.branch}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700">Branch</label>
+                  <input
+                    type="text"
+                    name="branch"
+                    value={newSubject.branch}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label className="block text-gray-700">Students</label>
-                <input
-                  type="text"
-                  name="students"
-                  value={newSubject.students}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700">Students</label>
+                  <input
+                    type="text"
+                    name="students"
+                    value={newSubject.students}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label className="block text-gray-700">Year</label>
-                <input
-                  type="text"
-                  name="year"
-                  value={newSubject.year}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700">Year</label>
+                  <input
+                    type="text"
+                    name="year"
+                    value={newSubject.year}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label className="block text-gray-700">Level</label>
-                <select
-                  name="level"
-                  value={newSubject.level}
-                  onChange={handleInputChange}
-                  className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                <div className="mb-4">
+                  <label className="block text-gray-700">Level</label>
+                  <select
+                    name="level"
+                    value={newSubject.level}
+                    onChange={handleInputChange}
+                    className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Under Graduate">Under Graduate</option>
+                    <option value="Post Graduate">Post Graduate</option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 px-4 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-800"
                 >
-                  <option value="Under Graduate">Under Graduate</option>
-                  <option value="Post Graduate">Post Graduate</option>
-                </select>
+                  Add Subject
+                </button>
               </div>
-
-              <button
-                type="submit"
-                className="w-full py-3 px-4 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-800"
-              >
-                Add Subject
-              </button>
-            </div>
-          </form>
-        </motion.div>
+            </form>
+          </motion.div>
+        )}
 
         <h2 className="text-2xl font-semibold text-blue-700 mb-4">Under Graduate Subjects</h2>
         {renderTable(underGraduateSubjects)}
