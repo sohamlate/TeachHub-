@@ -11,6 +11,7 @@ const StudyMaterials = () => {
   });
 
   const API_URL = "https://teach-hub-eight.vercel.app/api/study-materials";
+  const token = localStorage.getItem("token");
 
   
   const fetchMaterials = async () => {
@@ -66,6 +67,7 @@ const StudyMaterials = () => {
       </div>
 
       {/* Upload Form */}
+      { token && 
       <form
         onSubmit={handleSubmit}
         className="max-w-xl mx-auto bg-white shadow-md rounded-lg p-6 mb-8"
@@ -108,6 +110,8 @@ const StudyMaterials = () => {
           Upload Material
         </button>
       </form>
+
+}
 
       {/* Material List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
