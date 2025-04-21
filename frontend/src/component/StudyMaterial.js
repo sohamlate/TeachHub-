@@ -57,7 +57,7 @@ const StudyMaterials = () => {
     <div className="min-h-screen p-6 bg-gray-100">
       {/* Section Title */}
       <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-indigo-700">
+        <h1 className="text-3xl md:text-4xl font-bold text-blue-800 ">
           Study Material, E-Content & Blogs
         </h1>
         <p className="mt-2 text-gray-700 text-base md:text-lg max-w-2xl mx-auto">
@@ -103,7 +103,7 @@ const StudyMaterials = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-md"
+          className="w-full bg-blue-800 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-md"
         >
           Upload Material
         </button>
@@ -119,7 +119,7 @@ const StudyMaterials = () => {
             transition={{ duration: 0.4, delay: index * 0.1 }}
             className="bg-white rounded-lg shadow-md p-5"
           >
-            <h2 className="text-xl font-bold text-indigo-700 mb-2">
+            <h2 className="text-xl font-bold text-blue-800  mb-2">
               {material.name}
             </h2>
             <div className="flex flex-col gap-2">

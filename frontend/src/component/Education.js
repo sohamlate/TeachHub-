@@ -66,7 +66,7 @@ const Education = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-5xl font-bold bg-clip-text text-transparent  bg-blue-700 mb-4">
+          <h1 className="text-5xl font-bold bg-clip-text text-transparent  bg-blue-800  mb-4">
             Educational Journey
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -138,7 +138,7 @@ const Education = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
+                  className="w-full py-3 px-4 bg-blue-800  text-white font-semibold rounded-lg shadow-md hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
                 >
                   Add Education
                 </button>
@@ -176,7 +176,7 @@ const Education = () => {
                       href={edu.certificate}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-indigo-600 hover:text-indigo-700 transition-colors"
+                      className="inline-flex items-center text-sm text-indigo-600 hover:text-blue-800  transition-colors"
                     >
                       <span className="mr-1">📄</span>
                       View Certificate

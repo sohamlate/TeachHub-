@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const {
-  getDeliveredSessions,
-  addDeliveredSession,
-} = require("../controllers/deliveredSessionController");
+const expertSessionController = require("../controllers/deliveredSessionController");
 const authMiddleware = require("../middleware/authMiddleware");
 
-router.get("/", getDeliveredSessions);
+// Public routes
+router.get("/", expertSessionController.getExpertSessions);
+router.get("/category/:category", expertSessionController.getSessionsByCategory);
 
-router.post("/add", authMiddleware,addDeliveredSession);
+// Protected routes (require authentication)
+router.post("/add", authMiddleware, expertSessionController.addExpertSession);
+router.post("/bulk-add",authMiddleware ,  expertSessionController.bulkAddExpertSessions);
 
 module.exports = router;

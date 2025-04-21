@@ -120,7 +120,7 @@ const QuizDetail = () => {
           </div>
           <button 
             onClick={toggleView}
-            className={`px-6 py-2 rounded-md text-white transition-colors ${showAttempts ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'}`}
+            className={`px-6 py-2 rounded-md text-white transition-colors ${showAttempts ? 'bg-blue-600 hover:bg-blue-800 ' : 'bg-green-600 hover:bg-green-700'}`}
           >
             {showAttempts ? 'Manage Questions' : 'View Results'}
           </button>
@@ -212,7 +212,7 @@ const QuizDetail = () => {
 
                 <button
                   onClick={handleAddQuestion}
-                  className="w-full px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                  className="w-full px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-800  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
                 >
                   Add Question
                 </button>
@@ -255,7 +255,7 @@ const QuizDetail = () => {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-center text-sm">
                           <button
-                            className="inline-flex items-center px-3 py-1 border border-transparent text-sm leading-4 font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            className="inline-flex items-center px-3 py-1 border border-transparent text-sm leading-4 font-medium rounded-md text-blue-800 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                             onClick={() => {
                               alert(`Detailed view for ${attempt.userName}'s attempt will be shown here`);
                             }}

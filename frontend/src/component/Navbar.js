@@ -79,16 +79,16 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl font-bold text-blue-700">
+            {/* <span className="text-xl font-bold text-blue-800">
               Study Portal
-            </span>
+            </span> */}
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-blue-600 hover:text-blue-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-blue-600 hover:text-blue-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               aria-expanded={menuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -134,7 +134,7 @@ const Header = () => {
                 to={item.path}
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 transition ${
-                    isActive ? "text-blue-700 font-bold" : "text-blue-600"
+                    isActive ? "text-blue-800 font-bold" : "text-blue-800"
                   }`
                 }
               >
@@ -173,7 +173,7 @@ const Header = () => {
                       to={item.path}
                       className={({ isActive }) =>
                         `block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 transition ${
-                          isActive ? "text-blue-700 font-bold" : "text-blue-600"
+                          isActive ? "text-blue-800 font-bold" : "text-blue-600"
                         }`
                       }
                       onClick={() => {

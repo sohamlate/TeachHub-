@@ -16,14 +16,14 @@ function Home() {
           transition={{ duration: 0.8 }}
           className="bg-white rounded-3xl p-10 shadow-2xl"
         >
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 mb-10">
-            <img 
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:items-start gap-8 mb-10">
+            {/* <img 
               src="https://res.cloudinary.com/dsy3ebkqc/image/upload/v1743144202/Huehub/mopt5jzudymmuncozwky.jpg"
               className="w-40 h-44 rounded-xl border-4  shadow-md"
               alt={profileData.name}
-            />
-            <div className="text-center lg:pl-6 lg:ml-16 sm:mt-16 sm:text-left">
-              <h2 className="text-5xl font-extrabold text-blue-700">
+            /> */}
+            <div className="text-center  sm:text-left">
+              <h2 className="text-5xl font-extrabold text-blue-800">
                 {profileData.name || "Dr. Jane Doe"}
               </h2>
               {/* <p className="text-lg mt-2 text-blue-600">

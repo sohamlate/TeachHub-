@@ -104,7 +104,7 @@ const SubjectTaught = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 className="text-5xl font-bold text-center text-blue-700 mb-8">Subjects Taught</h1>
+        <h1 className="text-5xl font-bold text-center text-blue-800 mb-8">Subjects Taught</h1>
 
         {token && (
           <motion.div
@@ -113,7 +113,7 @@ const SubjectTaught = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl font-semibold text-blue-700 mb-4">Add New Subject</h2>
+            <h2 className="text-2xl font-semibold text-blue-800 mb-4">Add New Subject</h2>
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="mb-4">
@@ -191,7 +191,7 @@ const SubjectTaught = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-800"
+                  className="w-full py-3 px-4 bg-blue-800  text-white rounded-lg shadow-md hover:bg-blue-800 "
                 >
                   Add Subject
                 </button>
@@ -200,10 +200,10 @@ const SubjectTaught = () => {
           </motion.div>
         )}
 
-        <h2 className="text-2xl font-semibold text-blue-700 mb-4">Under Graduate Subjects</h2>
+        <h2 className="text-2xl font-semibold text-blue-800 mb-4">Under Graduate Subjects</h2>
         {renderTable(underGraduateSubjects)}
 
-        <h2 className="text-2xl mt-6 font-semibold text-blue-700 mb-4">Post Graduate Subjects</h2>
+        <h2 className="text-2xl mt-6 font-semibold text-blue-800 mb-4">Post Graduate Subjects</h2>
         {renderTable(postGraduateSubjects)}
       </div>
     </div>
